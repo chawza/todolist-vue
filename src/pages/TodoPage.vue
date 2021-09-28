@@ -1,7 +1,6 @@
 <template>
   <div class="page-container">
     <div class="content-area">
-      <!-- <div v-for="(todo, index) in todos" :key="index"> {{ todo.title }} {{todo.isDone}}</div> -->
       <div class="task-board" v-if="todos.length > 0">
         <TaskList v-for="(todo, index) in todos" :key="index" :taskData="todo" />
       </div>
@@ -13,7 +12,6 @@
 </template>
 
 <script>
-import  { ref } from 'vue';
 import TaskList from '../components/TaskList.vue';
 import NewTaskInput from '../components/NewTaskInput.vue';
 import { TodoList } from '../utils/store';

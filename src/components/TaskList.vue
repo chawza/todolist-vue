@@ -4,11 +4,12 @@
       type="text"
       v-model="taskData.title"
       placeholder="Task to do"
+      :class="{'task-is-done': taskData.isDone}"
     >
-    <div class="task-content">
+    <div class="task-content" @click="handleToggleDone">
       <img :src="checkIcon">
     </div>
-    <div class="task-content">
+    <div class="task-content" @click="handleRemoveTask">
       <img :src="removeIcon">
     </div>
   </div>
@@ -18,15 +19,23 @@
 <script>
 import checkIcon from '../assets/check.svg'
 import removeIcon from '../assets/remove.svg'
+import { TodoList } from '../utils/store'
 
 export default {
   props: {
     taskData: Object
   },
-  setup() {
+  setup(props) {
+    const { taskData } = props;
     return {
       checkIcon,
-      removeIcon
+      removeIcon,
+      handleRemoveTask() {
+        TodoList.deleteTodo(taskData.id)
+      },
+      handleToggleDone() {
+        TodoList.toggleIsDone(taskData.id)
+      }
     }
   }
 }
@@ -50,6 +59,7 @@ export default {
 
 .task-content img {
   width: 2em;
+  cursor: pointer;
 }
 
 .input-field {
@@ -59,5 +69,9 @@ export default {
 
 .input-field:focus {
   outline: none;;
+}
+
+.task-is-done {
+  text-decoration: line-through;
 }
 </style>
