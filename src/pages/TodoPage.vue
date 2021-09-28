@@ -16,19 +16,7 @@
 import  { ref } from 'vue';
 import TaskList from '../components/TaskList.vue';
 import NewTaskInput from '../components/NewTaskInput.vue';
-
-const todos = ref([
-  {title: 'Do this work', isDone: false},
-  {title: 'Go make a coffee', isDone: false},
-  {title: 'Learn Vue3', isDone: false},
-  {title: 'Do this work', isDone: false},
-  {title: 'Go make a coffee', isDone: false},
-  {title: 'Learn Vue3', isDone: false},
-  {title: 'Do this work', isDone: false},
-  {title: 'Go make a coffee', isDone: false},
-  {title: 'Learn Vue3', isDone: false},
-  {title: 'Do this work', isDone: false},
-])
+import { TodoList } from '../utils/store';
 
 export default {
   components : {
@@ -36,7 +24,7 @@ export default {
     NewTaskInput
   },
   setup() {    
-    return { todos };
+    return { todos: TodoList.todos };
   },
 }
 

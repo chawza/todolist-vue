@@ -19,6 +19,11 @@ Trying out Vue
   - directives
   - css flexbox and webkits
 
+## Day 3
+27/9/2021
+- added TodoList store state
+- add funtionality to add task trough UI
+
 # Todo
 - state management? scratch/flux/vuex?
 - localstorage management solution
