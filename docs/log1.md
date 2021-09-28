@@ -23,8 +23,8 @@ Trying out Vue
 27/9/2021
 - added TodoList store state
 - add funtionality to add task trough UI
-
+- add functonality to toggle task is Done
+- 
 # Todo
-- state management? scratch/flux/vuex?
 - localstorage management solution
 - function for add/edit/remove list
