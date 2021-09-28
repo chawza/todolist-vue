@@ -15,17 +15,22 @@
 import TaskList from '../components/TaskList.vue';
 import NewTaskInput from '../components/NewTaskInput.vue';
 import { TodoList } from '../utils/store';
+import { onMounted } from '@vue/runtime-core';
 
 export default {
   components : {
     TaskList,
     NewTaskInput
   },
-  setup() {    
-    return { todos: TodoList.todos };
-  },
+  setup() {
+    onMounted(() => {
+      TodoList.loadFromLocalStorage()
+    })
+    return {
+      todos: TodoList.todos,
+    };
+  }
 }
-
 </script>
 
 <style>

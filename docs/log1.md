@@ -24,6 +24,7 @@ Trying out Vue
 - added TodoList store state
 - add funtionality to add task trough UI
 - add functonality to toggle task is Done
+- add function to save or get list from localStorage
 - 
 # Todo
 - localstorage management solution

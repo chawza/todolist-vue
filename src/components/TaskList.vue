@@ -2,9 +2,10 @@
   <div class="task-container">
     <input class="task-content input-field"
       type="text"
-      v-model="taskData.title"
+      v-model="title"
       placeholder="Task to do"
       :class="{'task-is-done': taskData.isDone}"
+      @keyup.enter="handleUpdateTitle"
     >
     <div class="task-content" @click="handleToggleDone">
       <img :src="checkIcon">
@@ -20,21 +21,28 @@
 import checkIcon from '../assets/check.svg'
 import removeIcon from '../assets/remove.svg'
 import { TodoList } from '../utils/store'
+import { ref } from 'vue'
 
 export default {
   props: {
-    taskData: Object
+    taskData: Object,
   },
   setup(props) {
     const { taskData } = props;
+    const tasktitle = ref(taskData.title)
+
     return {
       checkIcon,
       removeIcon,
+      title: tasktitle,
       handleRemoveTask() {
         TodoList.deleteTodo(taskData.id)
       },
       handleToggleDone() {
         TodoList.toggleIsDone(taskData.id)
+      },
+      handleUpdateTitle() {
+        TodoList.updateTodo(taskData.id, tasktitle.value)
       }
     }
   }
