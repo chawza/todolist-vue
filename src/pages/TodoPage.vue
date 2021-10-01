@@ -1,8 +1,10 @@
 <template>
   <div class="page-container">
     <div class="content-area">
-      <div class="task-board" v-if="todos.length > 0">
-        <TaskList v-for="(todo, index) in todos" :key="index" :taskData="todo" />
+      <div class="task-board">
+        <template v-if="todos.length > 0">
+          <TaskList v-for="(todo, index) in todos" :key="index" :taskData="todo" />
+        </template>
       </div>
       <div class="bottom-bar">
         <NewTaskInput />
@@ -61,6 +63,7 @@ export default {
 }
 
 .bottom-bar {
-  margin-top: 1em;
+  position: sticky;
+  margin-bottom: 1em;
 }
 </style>

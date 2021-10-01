@@ -28,6 +28,7 @@ Trying out Vue
 
 ## Day 4
 1/10/2021
-- sacing to locastorage everytime todo list in store changes
+- saving to localStorage everytime todo list in store changes
 
 # Todo
+- find solution for ugly saving to local storage
