@@ -12,6 +12,7 @@ const TodoList = {
       id: generateId(),
       isDone: false
     })
+    this.saveToLocalStorage()
   },
   deleteTodo(id) {
     const indexToDelete = this.todos.value.findIndex(value => value.id === id)
@@ -19,21 +20,24 @@ const TodoList = {
       console.warn(`cannot delete todo with id ${id}`);
     }
     this.todos.value.splice(indexToDelete, 1);
+    this.saveToLocalStorage()
   },
   toggleIsDone(id) {
     const searchIndex = this.todos.value.findIndex(value => value.id === id)
     this.todos.value[searchIndex].isDone = !this.todos.value[searchIndex].isDone
+    this.saveToLocalStorage()
   },
   updateTodo(id, title) {
     const searchIndex = this.todos.value.findIndex(value => value.id === id)
     this.todos.value[searchIndex].title = title
+    this.saveToLocalStorage()
   },
   loadFromLocalStorage() {
     const todolist = JSON.parse(localStorage.getItem(TODOS_IN_STORAGE_KEY))
     this.todos.value = todolist || [];
   },
   saveToLocalStorage() {
-    localStorage.setItem(TODOS_IN_STORAGE_KEY, toString(this.todos.value))
+    localStorage.setItem(TODOS_IN_STORAGE_KEY, JSON.stringify(this.todos.value))
   }
 }
 

@@ -25,7 +25,9 @@ Trying out Vue
 - add funtionality to add task trough UI
 - add functonality to toggle task is Done
 - add function to save or get list from localStorage
-- 
+
+## Day 4
+1/10/2021
+- sacing to locastorage everytime todo list in store changes
+
 # Todo
-- localstorage management solution
-- function for add/edit/remove list
