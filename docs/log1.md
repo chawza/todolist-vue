@@ -29,6 +29,7 @@ Trying out Vue
 ## Day 4
 1/10/2021
 - saving to localStorage everytime todo list in store changes
+- check icon switch between isDone state
 
 # Todo
 - find solution for ugly saving to local storage

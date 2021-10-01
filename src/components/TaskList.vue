@@ -8,7 +8,8 @@
       @keyup.enter="handleUpdateTitle"
     >
     <div class="task-content" @click="handleToggleDone">
-      <img :src="checkIcon">
+      <img v-if="taskData.isDone === true" :src="checkIcon">
+      <img v-else :src="hollowCheckIcon">
     </div>
     <div class="task-content" @click="handleRemoveTask">
       <img :src="removeIcon">
@@ -20,6 +21,7 @@
 <script>
 import checkIcon from '../assets/check.svg'
 import removeIcon from '../assets/remove.svg'
+import hollowCheckIcon from '../assets/check-hollow.png'
 import { TodoList } from '../utils/store'
 import { ref } from 'vue'
 
@@ -34,6 +36,7 @@ export default {
     return {
       checkIcon,
       removeIcon,
+      hollowCheckIcon,
       title: tasktitle,
       handleRemoveTask() {
         TodoList.deleteTodo(taskData.id)
